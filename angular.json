@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "app4": {
+    "angular1": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/app4",
+            "outputPath": "docs",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -25,10 +25,15 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
+            "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+          ],
+            "server":
+             "src/main.server.ts",
+
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
@@ -62,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "app4:build:production"
+              "buildTarget": "angular1:build:production"
             },
             "development": {
-              "buildTarget": "app4:build:development"
+              "buildTarget": "angular1:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "app4:build"
+            "buildTarget": "angular1:build"
           }
         },
         "test": {
@@ -96,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "4ce0e551-72e8-47df-9d7c-4504c5fed5dc"
   }
 }
